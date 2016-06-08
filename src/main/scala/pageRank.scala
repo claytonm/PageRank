@@ -68,7 +68,7 @@ object pageRank {
       toArray.
       zipWithIndex.
       sortBy{case(pageRank, index) => -1*pageRank}.
-      map{case(pageRank, index) => (index, pageRank)}.
+      map{case(pageRank, index) => (index + 1, pageRank)}.
       take(n)
   }
 
@@ -77,7 +77,7 @@ object pageRank {
       toArray.
       zipWithIndex.
       sortBy{case(pageRank, index) => pageRank}.
-      map{case(pageRank, index) => (index, pageRank)}.
+      map{case(pageRank, index) => (index + 1, pageRank)}.
       take(n)
   }
 

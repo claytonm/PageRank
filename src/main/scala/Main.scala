@@ -12,19 +12,25 @@ object Main {
     val beta = 0.8
     val iterations = 40
 
-    R.toArray.zipWithIndex.foreach(println)
-
     val rank = pageRank.pageRank(beta, nodes, R, M, iterations)
     val top = pageRank.topPages(5, rank)
     val bottom = pageRank.bottomPages(5, rank)
 
-    println("Top 5 pages:")
+    println("Top 5 pages (Page Rank Implementation):")
     top.foreach(println)
-    println("Bottom 5 pages:")
+    println("Bottom 5 pages (Page Rank Implementation):")
     bottom.foreach(println)
 
-  }
+    val h = HITS.HITS(nodes, graph)
 
+    val topPages = pageRank.topPages(5, h)
+    val bottomPages = pageRank.bottomPages(5, h)
+
+    println("Top 5 pages (HITS Implementation):")
+    topPages.foreach(println)
+    println("Bottom 5 pages (HITS Implementation):")
+    bottomPages.foreach(println)
+  }
 }
 
 
